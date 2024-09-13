@@ -7,8 +7,20 @@ const divide = (arr, n) => {
 	
 	for(const num of arr) {
 		if(currentSum + num > n){
-			result.push(currentSubArray);// Write your code here
+			result.push(currentSubArray);
+			currentSubArray = [];
+			currentSum = 0;
+		}
+		currentSubArray.push(num);
+		currentSum+=num;
+	}
+	if(currentSubArray.length > 0)
+	{
+		result.push(currentSubArray)
+	}
+	return result;
+	// Write your code here
 };
 
-//const n = prompt("Enter n: ");
-//alert(JSON.stringify(divide(arr, n)));
+const n = prompt("Enter n: ");
+alert(JSON.stringify(divide(arr, n)));
